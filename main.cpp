@@ -1,18 +1,13 @@
 #include <iostream>
 #include "Livre.h"
 #include "Auteur.h"
+#include "Date.h"
 
 int main()
 {
-	//std::cout << "salut les amis" << std::endl;
-	
-	Auteur lol("02136", "Didier", "Martin", "25/02/1985");
-	
-	Livre test("le titre", "francais", "histoire", "023154", false,lol );
-	std::cout << test.getTitle() << std::endl;
-	std::cout << test.getLanguage() << std::endl;
-	std::cout << test.getStyle() << std::endl;
-	std::cout << test.getIsbn() << std::endl;
-	std::cout << test.getIsBorrowed() << std::endl;
-	return 0;
+    std::cout << "bonjour" << std::endl;
+    Date o(06,12,2021);
+    Livre Direction("Direction", "francais", "historique", "254106", "DEVOUCOUX", "Maxime", "23/05/2000");
+
+    return 0;
 }

@@ -3,23 +3,28 @@
 #include<assert.h>
 
 
-Date::Date(int month, int day , int year ) : _month(month), _day(day) , _year(year) {
+Date::Date(int month, int day , int year ) : _month(month), _day(day) , _year(year)
+{
     bool status = isDate(month, day);
     assert(status && "Date is not valid");
 }
 
-int Date::month() const {
+int Date::month() const
+{
     return _month;
 }
 
-int Date::day() const {
+int Date::day() const
+{
     return _day;
 }
-int Date::year() const {
+int Date::year() const
+{
     return _year;
 }
 
-void Date::updateMonth(int month) {
+void Date::updateMonth(int month)
+{
     bool status = isDate(month, _day);
     assert(status == true && "New month is not valid");
     _month = month;

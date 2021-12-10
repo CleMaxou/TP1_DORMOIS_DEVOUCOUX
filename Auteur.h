@@ -1,22 +1,19 @@
-#ifndef DEF_AUTEUR
-#define DEF_AUTEUR
+#ifndef AUTEUR_H
+#define AUTEUR_H
 
 #include <string>
-#include "Livre.h"
 
 class Auteur
 {
-	public:
-	// contructeur
-	Auteur(std::string idNum, std::string name, std::string firstname, std::string birthday);
-	
-	
-	private:
-	std::string _idNum;
-	std::string _name;
-	std::string _firstname;
-	std::string _birthday;
-	
+public:
+    // constructeur
+    Auteur(std::string nomAuteur, std::string prenomAuteur, std::string dateNaissanceAuteur);
+
+private:
+    std::string _nomAuteur;
+    std::string _prenomAuteur;
+    std::string _dateNaissanceAuteur;
+
 };
 
-#endif
+#endif // AUTEUR_H
