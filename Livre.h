@@ -26,7 +26,7 @@ class Livre
 	
 	
 	// constructeur
-	Livre(std::string title, std::string language, std::string style, std::string isbn, bool isBorrowed);
+	Livre(std::string title, std::string language, std::string style, std::string isbn, bool isBorrowed, Auteur auteur);
 	
 	private:
 	// attributs
@@ -35,8 +35,7 @@ class Livre
 	std::string _style;
 	std::string _isbn;
 	bool _isBorrowed;
-	//Auteur _auteur;
-	
+	//Auteur _auteur;	
 };
 
 #endif

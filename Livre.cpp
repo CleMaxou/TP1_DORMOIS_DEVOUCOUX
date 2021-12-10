@@ -3,7 +3,7 @@
 #include <iostream>
 
 // constructeur par paramètres
-Livre::Livre(std::string title, std::string language, std::string style, std::string isbn, bool isBorrowed) : _title(title), _language(language), _style(style), _isbn(isbn), _isBorrowed(isBorrowed)
+Livre::Livre(std::string title, std::string language, std::string style, std::string isbn, bool isBorrowed, Auteur auteur) : _title(title), _language(language), _style(style), _isbn(isbn), _isBorrowed(isBorrowed), Auteur auteur
 {
 	
 }
