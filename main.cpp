@@ -55,8 +55,13 @@ int main()
     bibli1.afficherListeEmprunt();
 
     bibli1.rendre(Direction, clement, 2);
+    bibli1.rendre(Nemo, maxou, 1);
 
     Direction.afficheLivre();
+    Nemo.afficheLivre();
+
+    Direction.afficherEmprunt();
+    Nemo.afficherEmprunt();
 
 
 

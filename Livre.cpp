@@ -45,7 +45,6 @@ void Livre::setEtat(bool etat)
     _emprunte = etat;
 }
 
-
 // ================================ Méthodes ==============================
 void Livre::afficheLivre()
 {
@@ -68,17 +67,17 @@ void Livre::afficheLivre()
     std::cout << toString(_date) << std::endl;
 }
 
-
 // afficher la liste des id des gens ayant empruntés des livres
 void Livre::afficherEmprunt()
 {
-    int n = _listeEmprunt.size();
-    //std::cout << &_listeEmprunt << std::endl;
-
-    std::cout << "liste d'emprunts :" << std::endl;
-    for(int i = 0; i < n; i++)
+    std::cout << "liste d'emprunts du livre " << _titre << " : "  << std::endl;
+    for(int i = 0; i < _listeEmprunt.size(); i++)
     {
         std::cout << _listeEmprunt[i] << std::endl;
     }
+}
 
+void Livre::ajouterEmprunt(std::string emprunt)
+{
+    _listeEmprunt.push_back(emprunt);
 }

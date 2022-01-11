@@ -17,6 +17,11 @@ std::string Emprunt::getIDEmprunt() const
     return _idLecteur;
 }
 
+std::string Emprunt::getISBNEmprunt() const
+{
+    return _isbnLivre;
+}
+
 // ===================================== Setters ===============================================
 void Emprunt::setIsbn(std::string isbn)
 {

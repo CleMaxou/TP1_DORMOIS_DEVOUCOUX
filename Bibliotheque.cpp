@@ -4,6 +4,7 @@
 #include "Emprunt.h"
 #include "Date.h"
 #include <iostream>
+//#include <vector>
 
 // constructeur
 Bibliotheque::Bibliotheque()
@@ -79,19 +80,23 @@ void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
 
 void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
 {
-    if(livre.getEtat() == 0)    // si le livre est dispo
+    if(livre.getEtat() == 0)    // si livre ibre
     {
-        std::cout << "le livre est deja dispo" << std::endl;
+        std::cout << "livre deja libre" << std::endl;
     }
-
-    else if(_listeEmprunts[numEmprunt - 1].getIDEmprunt() != lecteur.getIdLecteur())    // si l'ID du lecteur est différent de celui qui veut rendre
+    else if(_listeEmprunts[numEmprunt - 1].getIDEmprunt() != lecteur.getIdLecteur())    // si ID différent
     {
         std::cout << "mauvais lecteur" << std::endl;
     }
-
-    else
+    else if(_listeEmprunts[numEmprunt - 1].getISBNEmprunt() != livre.getIsbn()) // si ISBN différent
+    {
+        std::cout << "mauvais livre" << std::endl;
+    }
+    else    // tout est bon
     {
         std::cout << lecteur.getPrenomLecteur() << " rend le livre " << livre.getTitre() << std::endl << std::endl;
         livre.setEtat(false);
+        livre.ajouterEmprunt(lecteur.getIdLecteur());
+        //erase(_listeEmprunts, _listeEmprunts[numEmprunt - 1]);
     }
 }

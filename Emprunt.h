@@ -14,6 +14,7 @@ public:
 
     // getters
     std::string getIDEmprunt() const;
+    std::string getISBNEmprunt() const;
 
     // setters
     void setIsbn(std::string isbn);
