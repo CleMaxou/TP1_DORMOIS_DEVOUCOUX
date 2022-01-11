@@ -82,37 +82,3 @@ void Livre::afficherEmprunt()
     }
 
 }
-
-// méthode pour emprunter un livre
-void Livre::emprunter(Lecteur lecteur)
-{
-    if(_emprunte == true)
-    {
-        std::cout << "Le livre est deja emprunte" << std::endl;
-    }
-    else
-    {
-        _emprunte = true;
-        _listeEmprunt.push_back(lecteur.getIdLecteur());
-
-        //std::cout << "isbn qui va etre enregistre : " << _isbn << std::endl;
-
-        Lecteur *pointLecteur = &lecteur;
-
-
-        pointLecteur->ajouterIsbn(_isbn);
-    }
-}
-
-// méthode pour rendre un livre
-void Livre::rendre(Lecteur lecteur)
-{
-    if(_emprunte == true)
-    {
-        _emprunte = false;
-    }
-    else
-    {
-        std::cout << "Le livre est déjà libre" << std::endl;
-    }
-}

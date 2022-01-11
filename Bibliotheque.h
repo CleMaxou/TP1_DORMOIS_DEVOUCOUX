@@ -24,6 +24,7 @@ public:
     void afficherListeEmprunt();
     // autre
     void emprunt(Livre &livre, Lecteur &lecteur, Date date);
+    void rendre(Livre&livre, Lecteur&lecteur, int numEmprunt);
 
 private:
     std::string _nom;

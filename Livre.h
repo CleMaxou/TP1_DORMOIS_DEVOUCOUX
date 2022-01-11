@@ -29,8 +29,6 @@ public:
     void afficheLivre();
     void ajouterEmprunt(std::string emprunt);
     void afficherEmprunt();
-    void emprunter(Lecteur lecteur);
-    void rendre(Lecteur lecteur);
 
 
 

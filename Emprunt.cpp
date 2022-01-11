@@ -11,6 +11,12 @@ Emprunt::Emprunt(Date dateEmprunt, Livre livre, Lecteur lecteur) : _date(dateEmp
 
 }
 
+// =================== Getters ===================
+std::string Emprunt::getIDEmprunt() const
+{
+    return _idLecteur;
+}
+
 // ===================================== Setters ===============================================
 void Emprunt::setIsbn(std::string isbn)
 {

@@ -12,6 +12,9 @@ public:
     // constructeur
     Emprunt(Date dateEmprunt, Livre livreEmprunte, Lecteur lecteurEmprunt);
 
+    // getters
+    std::string getIDEmprunt() const;
+
     // setters
     void setIsbn(std::string isbn);
     void setId(std::string id);

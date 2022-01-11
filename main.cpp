@@ -6,15 +6,6 @@
 #include "Emprunt.h"
 #include "Bibliotheque.h"
 
-
-void emprunteUnLivre(Livre livre , Lecteur lecteur)
-{
-    livre.emprunter(lecteur);
-    lecteur.setIsbn(livre.getIsbn());
-}
-
-
-
 int main()
 {
     // objets
@@ -56,11 +47,17 @@ int main()
     bibli1.afficherListeLivre();
 
     bibli1.emprunt(Nemo, maxou, date4);
-
-    // emprunts
-    Emprunt a(date4, Direction, clement);
-
     Nemo.afficheLivre();
+
+    bibli1.emprunt(Direction, clement, date4);
+    Direction.afficheLivre();
+
+    bibli1.afficherListeEmprunt();
+
+    bibli1.rendre(Direction, clement, 2);
+
+    Direction.afficheLivre();
+
 
 
     /*

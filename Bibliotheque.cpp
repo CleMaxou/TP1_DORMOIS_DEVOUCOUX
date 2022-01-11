@@ -51,9 +51,11 @@ void Bibliotheque::afficherListeLecteur()
 
 void Bibliotheque::afficherListeEmprunt()
 {
+    std::cout << "Liste des emprunts :" << std::endl << std::endl;
     for(int i = 0; i < _listeEmprunts.size(); i++)
     {
         _listeEmprunts[i].afficher();
+        std::cout << std::endl;
     }
 }
 
@@ -65,13 +67,31 @@ void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
     }
     else
     {
-        std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl;
+        std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl << std::endl;
         livre.setEtat(true);
-        std::cout << "valeur de emprunte du livre " << livre.getTitre() << " : " << livre.getEtat() << std::endl;
         Emprunt emprunt(date, livre, lecteur);
         _listeEmprunts.push_back(emprunt);
     }
 
     //livre.ajouterEmprunt(lecteur.getIdLecteur());
     //livre.afficherEmprunt();
+}
+
+void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
+{
+    if(livre.getEtat() == 0)    // si le livre est dispo
+    {
+        std::cout << "le livre est deja dispo" << std::endl;
+    }
+
+    else if(_listeEmprunts[numEmprunt - 1].getIDEmprunt() != lecteur.getIdLecteur())    // si l'ID du lecteur est différent de celui qui veut rendre
+    {
+        std::cout << "mauvais lecteur" << std::endl;
+    }
+
+    else
+    {
+        std::cout << lecteur.getPrenomLecteur() << " rend le livre " << livre.getTitre() << std::endl << std::endl;
+        livre.setEtat(false);
+    }
 }
