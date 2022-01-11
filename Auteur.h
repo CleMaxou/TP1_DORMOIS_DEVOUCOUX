@@ -9,12 +9,14 @@ class Auteur
 public:
     // constructeur
     Auteur(std::string nomAuteur, std::string prenomAuteur, Date dateAuteur, std::string idAuteur);
+    Auteur();
 
     // getters
     std::string getNomAuteur() const;
     std::string getPrenomAuteur() const;
     std::string getDateNaissanceAuteur() const;
     std::string getIdAuteur() const;
+
     void afficherAuteur() const;
 
 private:

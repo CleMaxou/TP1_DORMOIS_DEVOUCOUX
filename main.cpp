@@ -19,7 +19,7 @@ int main()
 {
     std::cout << "bonjour" << std::endl << std::endl;
 
-    Bibliotheque bibli1("Chez Maxou");
+    Bibliotheque bibli1;
 
     Date date1(5,13,2020);
     Date date2(2,25,1995);
@@ -65,7 +65,7 @@ int main()
     std::cout << std::endl << std::endl;
     pointClement->afficherIsbn();   // à faire
 
-    Emprunt emprunt1("125", "623", date1);
+    Emprunt emprunt1(date1, Direction, maxou);
     emprunt1.afficher();
 
     std::cout << std::endl << std::endl;

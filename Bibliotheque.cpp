@@ -6,7 +6,7 @@
 #include <iostream>
 
 // constructeur
-Bibliotheque::Bibliotheque(std::string nom) : _nom(nom)
+Bibliotheque::Bibliotheque()
 {
 
 }
@@ -59,9 +59,17 @@ void Bibliotheque::afficherListeEmprunt()
 
 void Bibliotheque::emprunt(Livre livre, Lecteur lecteur, Date date)
 {
-    livre.setEtat(true);
-    Emprunt a(livre.getIsbn(), lecteur.getIdLecteur(), date);
-    _listeEmprunts.push_back(a);
+    if(livre.getEtat() == true) // si le ivre est emprunté
+    {
+        std::cout << "Le livre est deja pris" << std::endl;
+    }
+    else
+    {
+        livre.setEtat(true);
+        Emprunt emprunt(date, livre, lecteur);
+        _listeEmprunts.push_back(emprunt);
+    }
+
     //livre.ajouterEmprunt(lecteur.getIdLecteur());
     //livre.afficherEmprunt();
 }

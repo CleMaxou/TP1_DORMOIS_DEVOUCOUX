@@ -3,12 +3,14 @@
 
 #include <string>
 #include "Date.h"
+#include "Livre.h"
+#include "Lecteur.h"
 
 class Emprunt
 {
 public:
     // constructeur
-    Emprunt(std::string isbn, std::string id, Date date);
+    Emprunt(Date dateEmprunt, Livre livreEmprunte, Lecteur lecteurEmprunt);
 
     // setters
     void setIsbn(std::string isbn);
@@ -22,6 +24,8 @@ private:
     std::string _isbnLivre;
     std::string _idLecteur;
     Date _date;
+    Livre _livre;
+    Lecteur _lecteur;
 
 };
 

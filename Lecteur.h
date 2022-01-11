@@ -9,6 +9,7 @@ class Lecteur
 public:
     // constructeurs et destructeurs
     Lecteur(std::string idLecteur, std::string nomLecteur, std::string prenomLecteur);
+    Lecteur();
     ~Lecteur();
     // getters
     std::string getNomLecteur() const;

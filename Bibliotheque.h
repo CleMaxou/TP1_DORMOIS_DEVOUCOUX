@@ -11,7 +11,7 @@ class Bibliotheque
 {
 public:
     // constructeur
-    Bibliotheque(std::string nom);
+    Bibliotheque();
 
 
     // méthodes

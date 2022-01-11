@@ -9,6 +9,11 @@ Auteur::Auteur(std::string nomAuteur, std::string prenomAuteur, Date dateAuteur,
 
 }
 
+Auteur::Auteur()
+{
+
+}
+
 // ======================= Getters =================================
 std::string Auteur::getNomAuteur() const
 {
@@ -28,5 +33,8 @@ std::string Auteur::getIdAuteur() const
 // ============================ méthodes ==========================
 void Auteur::afficherAuteur() const
 {
-    std::cout << _dateAuteur.getDay() << " / " << _dateAuteur.getMonth() << " / " << _dateAuteur.getYear() << std::endl;
+    std::cout << "Prenom : " << _prenomAuteur << std::endl;
+    std::cout << "Nom : " << _nomAuteur << std::endl;
+    std::cout << toString(_dateAuteur) << std::endl;
+    std::cout << "ID : " << _idAuteur << std::endl;
 }

@@ -13,12 +13,27 @@ Livre::Livre(std::string titre, std::string langue, std::string genre, std::stri
     _emprunte = false;
 }
 
+// contructeur par défaut
+Livre::Livre()
+{
+
+}
+
 // =================================== Getters ======================================
 std::string Livre::getIsbn()
 {
     return _isbn;
 }
 
+Auteur Livre::getAuteur() const
+{
+    return _auteurDuLivre;
+}
+
+bool Livre::getEtat() const
+{
+    return _emprunte;
+}
 // ================================= Setters ========================================
 void Livre::setEtat(bool etat)
 {
@@ -29,13 +44,13 @@ void Livre::setEtat(bool etat)
 // ================================ Méthodes ==============================
 void Livre::afficheLivre()
 {
-    std::cout << "A propos du livre" << std::endl;
+    std::cout << " ======== A propos du livre ==========" << std::endl;
     std::cout << "Titre : " << _titre << std::endl;
     std::cout << "Langue : " << _langue << std::endl;
     std::cout << "Genre : " << _genre << std::endl;
-    std::cout << "ISBN : " <<_isbn << std::endl;
+    std::cout << "ISBN : " << _isbn << std::endl;
 
-    if(_emprunte == true)
+    if(_emprunte == true)   // true = emprunté
     {
         std::cout << "Le livre est emprunte" << std::endl;
     }
@@ -43,13 +58,10 @@ void Livre::afficheLivre()
     {
         std::cout << "Le livre est libre" << std::endl;
     }
-    std::cout << "A propos de l'auteur : " << std:: endl;
-    std::cout << "Nom : " << _auteurDuLivre.getNomAuteur() << std::endl;
-    std::cout << "Prenom : " << _auteurDuLivre.getPrenomAuteur() << std::endl;
-    //std::cout << "Date de naissance : " << _auteurDuLivre.afficherAuteur() << std::endl;
-    std::cout << "ID : " << _auteurDuLivre.getIdAuteur() << std::endl;
+    std::cout << "* A propos de l'auteur : " << std:: endl;
+    _auteurDuLivre.afficherAuteur();
     std::cout << "Date de publication : " << std:: endl;
-    std::cout << _date.getDay() << "/" << _date.getMonth() << "/" << _date.getYear() << std::endl;
+    std::cout << toString(_date) << std::endl;
 }
 
 

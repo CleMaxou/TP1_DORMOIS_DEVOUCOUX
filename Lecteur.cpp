@@ -10,6 +10,11 @@ Lecteur::Lecteur(std::string idLecteur, std::string nomLecteur, std::string pren
 
 }
 
+Lecteur::Lecteur()
+{
+
+}
+
 // destructeur
 Lecteur::~Lecteur()
 {
