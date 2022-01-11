@@ -83,10 +83,10 @@ int main()
     bibli1.ajouterUnLecteur(maxou);
 
 
-    bibli1.emprunt(Direction,clement);
+    bibli1.emprunt(Direction,clement,date1);
 
 
-    bibli1.afficherListeLecteur();
+    bibli1.afficherListeEmprunt();
 
 
 
