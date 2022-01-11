@@ -13,7 +13,6 @@ public:
     // constructeur
     Bibliotheque();
 
-
     // méthodes
     // ajouts
     void ajouterUnLivre(Livre livre);
@@ -24,7 +23,7 @@ public:
     void afficherListeLecteur();
     void afficherListeEmprunt();
     // autre
-    void emprunt(Livre livre, Lecteur lecteur, Date date);
+    void emprunt(Livre &livre, Lecteur &lecteur, Date date);
 
 private:
     std::string _nom;

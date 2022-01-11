@@ -34,6 +34,11 @@ bool Livre::getEtat() const
 {
     return _emprunte;
 }
+
+std::string Livre::getTitre() const
+{
+    return _titre;
+}
 // ================================= Setters ========================================
 void Livre::setEtat(bool etat)
 {
@@ -44,7 +49,6 @@ void Livre::setEtat(bool etat)
 // ================================ Méthodes ==============================
 void Livre::afficheLivre()
 {
-    std::cout << " ======== A propos du livre ==========" << std::endl;
     std::cout << "Titre : " << _titre << std::endl;
     std::cout << "Langue : " << _langue << std::endl;
     std::cout << "Genre : " << _genre << std::endl;

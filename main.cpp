@@ -17,22 +17,23 @@ void emprunteUnLivre(Livre livre , Lecteur lecteur)
 
 int main()
 {
-    std::cout << "bonjour" << std::endl << std::endl;
-
+    // objets
     Bibliotheque bibli1;
 
     Date date1(5,13,2020);
     Date date2(2,25,1995);
     Date date3(8,31,1959);
-    Auteur auteur1("Jonhatan", "Colbell", date1, "7854");
-    Auteur auteur2("E", "Z", date3, "8541");
-    // livres
-    Livre Direction("Direction", "francais", "historique", "254106", auteur1, date2);
-    Livre LFNPDSDM("LFNPDSDM", "francais", "essai", "125652", auteur2, date1);
-    Livre LPCR("Le petit chaperon rouge", "anglais", "conte", "454587", auteur1, date2);
-    // lecteurs
-    Lecteur marc("123", "Bouleau", "Marc");
-    Lecteur clement("245", "Dormois", "Clement");
+    Date date4(11,25,2022);
+
+    Auteur auteur1("Colbell", "Jonhatan", date3, "7854");
+    Auteur auteur2("Blora", "Natasha", date2, "8541");
+
+    Livre Direction("Direction", "francais", "historique", "254106", auteur1, date1);
+    Livre Nemo("Nemo", "allemand", "roman", "125652", auteur2, date1);
+    Livre LPCR("Le petit chaperon rouge", "anglais", "conte", "454587", auteur2, date1);
+
+    Lecteur marc("123", "BOUELAU", "Marc");
+    Lecteur clement("245", "DORMOIS", "Clement");
     Lecteur maxou("921", "DEVOUCOUX", "Maxime");
 
     //Livre *pointDirection = &Direction;
@@ -41,6 +42,28 @@ int main()
     Lecteur *pointClement = &clement;
     Lecteur *pointMaxou = &maxou;
 
+    // ajout de livres
+    bibli1.ajouterUnLivre(Direction);
+    bibli1.ajouterUnLivre(LPCR);
+    bibli1.ajouterUnLivre(Nemo);
+
+    // ajout de lecteurs
+    bibli1.ajouterUnLecteur(clement);
+    bibli1.ajouterUnLecteur(maxou);
+    bibli1.ajouterUnLecteur(marc);
+
+    bibli1.afficherListeLecteur();
+    bibli1.afficherListeLivre();
+
+    bibli1.emprunt(Nemo, maxou, date4);
+
+    // emprunts
+    Emprunt a(date4, Direction, clement);
+
+    Nemo.afficheLivre();
+
+
+    /*
     std::cout << " ============== marc ============" << std::endl;
 
     Direction.emprunter(*pointMarc);
@@ -88,6 +111,7 @@ int main()
 
     bibli1.afficherListeEmprunt();
 
+    */
 
 
 

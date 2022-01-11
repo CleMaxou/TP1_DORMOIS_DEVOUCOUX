@@ -19,6 +19,7 @@ public:
     std::string getIsbn();
     Auteur getAuteur() const;
     bool getEtat() const;
+    std::string getTitre() const;
 
     // setter
     void setEtat(bool etat);

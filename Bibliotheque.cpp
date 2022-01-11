@@ -29,35 +29,35 @@ void Bibliotheque::ajouterEmprunt(Emprunt emprunt)
 
 void Bibliotheque::afficherListeLivre()
 {
-    std::cout << "=================================" << std::endl;
+    std::cout << "Liste des livres :" << std::endl << std::endl;
     for(int i = 0; i < _listeLivres.size(); i++)
     {
         _listeLivres[i].afficheLivre();
-        std::cout << "=================================" << std::endl;
+        std::cout << std::endl;
     }
 
 }
 
 void Bibliotheque::afficherListeLecteur()
 {
-    std::cout << "=================================" << std::endl;
+    std::cout << "Liste des lecteurs :" << std::endl << std::endl;
     for(int i = 0; i < _listeLecteurs.size(); i++)
     {
         _listeLecteurs[i].afficherLecteur();
+        std::cout << std::endl;
     }
 
 }
 
 void Bibliotheque::afficherListeEmprunt()
 {
-    std::cout << "==================================" << std::endl;
     for(int i = 0; i < _listeEmprunts.size(); i++)
     {
         _listeEmprunts[i].afficher();
     }
 }
 
-void Bibliotheque::emprunt(Livre livre, Lecteur lecteur, Date date)
+void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
 {
     if(livre.getEtat() == true) // si le ivre est emprunté
     {
@@ -65,7 +65,9 @@ void Bibliotheque::emprunt(Livre livre, Lecteur lecteur, Date date)
     }
     else
     {
+        std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl;
         livre.setEtat(true);
+        std::cout << "valeur de emprunte du livre " << livre.getTitre() << " : " << livre.getEtat() << std::endl;
         Emprunt emprunt(date, livre, lecteur);
         _listeEmprunts.push_back(emprunt);
     }
