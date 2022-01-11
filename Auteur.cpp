@@ -1,31 +1,32 @@
 #include "Auteur.h"
+#include "Date.h"
 
 #include <iostream>
 
 // constructeur
-Auteur::Auteur(std::string nomAuteur, std::string prenomAuteur, std::string dateNaissanceAuteur, std::string idAuteur) : _nomAuteur(nomAuteur), _prenomAuteur(prenomAuteur), _dateNaissanceAuteur(dateNaissanceAuteur), _idAuteur(idAuteur)
+Auteur::Auteur(std::string nomAuteur, std::string prenomAuteur, Date dateAuteur, std::string idAuteur) : _nomAuteur(nomAuteur), _prenomAuteur(prenomAuteur), _dateAuteur(dateAuteur), _idAuteur(idAuteur)
 {
 
 }
 
 // ======================= Getters =================================
-std::string Auteur::getNomAuteur()
+std::string Auteur::getNomAuteur() const
 {
     return _nomAuteur;
 }
 
-std::string Auteur::getPrenomAuteur()
+std::string Auteur::getPrenomAuteur()const
 {
     return _prenomAuteur;
 }
 
-
-std::string Auteur::getDateNaissanceAuteur()
-{
-    return _dateNaissanceAuteur;
-}
-
-std::string Auteur::getIdAuteur()
+std::string Auteur::getIdAuteur() const
 {
     return _idAuteur;
+}
+
+// ============================ méthodes ==========================
+void Auteur::afficherAuteur() const
+{
+    std::cout << _dateAuteur.getDay() << " / " << _dateAuteur.getMonth() << " / " << _dateAuteur.getYear() << std::endl;
 }

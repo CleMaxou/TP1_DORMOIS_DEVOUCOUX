@@ -1,22 +1,64 @@
+#include <iostream>
+#include "Lecteur.h"
+#include "Livre.h"
 
-#include<iostream>
-#include"Lecteur.h"
 
 
-Lecteur::Lecteur(std::string id, std::string nom, std::string prenom , std::string ISBN) : _id(id), _nom(nom), _prenom(prenom), _ISBN(ISBN) {
+// constructeur par paramètres
+Lecteur::Lecteur(std::string idLecteur, std::string nomLecteur, std::string prenomLecteur ) : _idLecteur(idLecteur), _nomLecteur(nomLecteur), _prenomLecteur(prenomLecteur)
+{
 
 }
-std::string Lecteur::Getprenom() const {
-    return _prenom;
-}
 
-std::string Lecteur::Getnom() const {
-    return _nom;
-}
-std::string Lecteur::Getid() const {
-    return _id;
-}
-
+// destructeur
 Lecteur::~Lecteur()
 {
+}
+
+// ============================= Setters =================================
+void Lecteur::setIsbn(std::string isbn)
+{
+    _listeIsbn.push_back(isbn);
+}
+
+// ========================= Getters ========================================
+
+std::string Lecteur::getPrenomLecteur() const
+{
+    return _prenomLecteur;
+}
+
+std::string Lecteur::getNomLecteur() const
+{
+    return _nomLecteur;
+}
+
+std::string Lecteur::getIdLecteur() const
+{
+    return _idLecteur;
+}
+
+// ========================= Méthodes ====================================
+void Lecteur::ajouterIsbn(std::string isbn)
+{
+    _listeIsbn.push_back(isbn);
+    std::cout << "fait" << std::endl;
+}
+
+// affiche la liste des isbn des livres
+void Lecteur::afficherIsbn()
+{
+    std::cout << "salut" << std::endl;
+    int n = _listeIsbn.size();
+    for(int i = 0; i < n; i++)
+    {
+        std::cout << _listeIsbn[i] << std::endl;
+    }
+}
+
+void Lecteur::afficherLecteur()
+{
+    std::cout << _prenomLecteur << std::endl;
+    std::cout << _nomLecteur << std::endl;
+    std::cout << _idLecteur << std::endl;
 }

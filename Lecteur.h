@@ -1,24 +1,35 @@
-#ifndef DEF_LECTEUR
-#define DEF_LECTEUR
-#include"Lecteur.h"
+#ifndef LECTEUR_H
+#define LECTEUR_H
+
+#include <string>
 #include<vector>
+
 class Lecteur
 {
 public:
-	// _ISBN a implementer
-	Lecteur(std::string id = "dginhac", std::string nom = "Ginhac", std::string prenom = "Dominique", std::string _ISBN = "0593359445");
-	~Lecteur();
-	std::string Getnom() const;
-	std::string Getprenom() const;
-	std::string Getid() const;
-	std::vector< std::string > GETISBN();
+    // constructeurs et destructeurs
+    Lecteur(std::string idLecteur, std::string nomLecteur, std::string prenomLecteur);
+    ~Lecteur();
+    // getters
+    std::string getNomLecteur() const;
+    std::string getPrenomLecteur() const;
+    std::string getIdLecteur() const;
+
+    // setters
+    void setIsbn(std::string isbn);
+
+    // méthodes
+    void ajouterIsbn(std::string isbn);
+    void afficherIsbn();
+    void afficherLecteur();
 
 private:
-	std::string _id;
-	std::string _nom;
-	std::string _prenom;
-	std::vector< std::string > _ISBN;
+    std::string _idLecteur;
+    std::string _nomLecteur;
+    std::string _prenomLecteur;
+    std::vector<std::string> _listeIsbn;
 };
 
+void ajouterUnIsbn(std::string isbn);
 
-#endif // !DEF_LECTEUR
+#endif // LECTEUR_H

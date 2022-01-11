@@ -2,8 +2,9 @@
 #define DATE_H
 
 #include<string>
-class Date {
 
+class Date
+{
 public:
     Date(int month = 1, int day = 1, int year = 2021);  // constructeur par paramètres
     // getters

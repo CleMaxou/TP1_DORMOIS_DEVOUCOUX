@@ -2,24 +2,26 @@
 #define AUTEUR_H
 
 #include <string>
+#include "Date.h"
 
 class Auteur
 {
 public:
     // constructeur
-    Auteur(std::string nomAuteur, std::string prenomAuteur, std::string dateNaissanceAuteur, std::string idAuteur);
+    Auteur(std::string nomAuteur, std::string prenomAuteur, Date dateAuteur, std::string idAuteur);
 
     // getters
-    std::string getNomAuteur();
-    std::string getPrenomAuteur();
-    std::string getDateNaissanceAuteur();
-    std::string getIdAuteur();
+    std::string getNomAuteur() const;
+    std::string getPrenomAuteur() const;
+    std::string getDateNaissanceAuteur() const;
+    std::string getIdAuteur() const;
+    void afficherAuteur() const;
 
 private:
     std::string _nomAuteur;
     std::string _prenomAuteur;
-    std::string _dateNaissanceAuteur;
     std::string _idAuteur;
+    Date _dateAuteur;
 
 };
 
