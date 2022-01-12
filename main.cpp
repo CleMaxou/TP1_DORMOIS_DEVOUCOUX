@@ -40,21 +40,20 @@ int main()
     Livre allaicneDesTrois("L'Allaicne des Trois", "francais", "Roman", "845120", MChattam, parutionAllianceDesTrois);
     Livre malefices("Malefices", "francais", "Roman", "187236", MChattam, parutionMalefices);
     Livre laPatienceDuDiable("La patience du Diable", "francais", "Roman", "326521", MChattam, parutionMalefices);
-
+    // ajout de livres dans la bibliotheque
     bibli1.ajouterUnLivre(glace);
     bibli1.ajouterUnLivre(laVallee);
+    bibli1.ajouterUnLivre(leLabyrinthe);
+    bibli1.ajouterUnLivre(laTerreBrulee);
     bibli1.ajouterUnLivre(allaicneDesTrois);
+    bibli1.ajouterUnLivre(malefices);
+    bibli1.ajouterUnLivre(laPatienceDuDiable);
 
     bibli1.emprunt(glace, maxime, parutionAllianceDesTrois);
     bibli1.emprunt(leLabyrinthe, maxime, parutionAllianceDesTrois);
     bibli1.emprunt(laTerreBrulee, maxime, parutionAllianceDesTrois);
     bibli1.afficheLivresEmprunteLecteur(maxime);
 
-    /*
-    bibli1.afficherListeLivre();
-    bibli1.rendre(glace, maxime, 1);
-    bibli1.afficherListeLivre();
-    */
 
 
     return 0;

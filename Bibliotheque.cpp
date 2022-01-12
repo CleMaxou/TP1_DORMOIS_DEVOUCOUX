@@ -78,10 +78,13 @@ void Bibliotheque::afficherListeAuteurs()
 // emprunt de livres
 void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
 {
+    //for(int i = 0; )
+
     if(livre.getEtat() == true) // si le ivre est emprunté
     {
         std::cout << "Le livre est deja pris" << std::endl;
     }
+
     else
     {
         std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl << std::endl;
@@ -168,7 +171,7 @@ void Bibliotheque::calculLivreemprunter()
     }
     std::cout << "Le pourcentage de livre emprunte est : " << (nbrLivreEmprunter / nbrLivre) *100 << " % " << std::endl;
 }
-
+// affiche les livres que le lecteur a emprunté
 void Bibliotheque::afficheLivresEmprunteLecteur(Lecteur& lecteur)
 {
     std::cout << "==================" << std::endl;
@@ -176,7 +179,7 @@ void Bibliotheque::afficheLivresEmprunteLecteur(Lecteur& lecteur)
     std::string ISBN;
     for(int i = 0; i < lecteur.getListeISBN().size(); i++)
     {
-        std::cout << lecteur.getListeISBN()[i] << std::endl;
+        //std::cout << lecteur.getListeISBN()[i] << std::endl;
         ISBN = lecteur.getListeISBN()[i];
         for(int j = 0; j < _listeLivres.size(); j++)
         {
