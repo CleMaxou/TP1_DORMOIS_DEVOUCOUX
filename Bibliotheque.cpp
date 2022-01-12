@@ -78,32 +78,34 @@ void Bibliotheque::afficherListeAuteurs()
 // emprunt de livres
 void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
 {
-    //for(int i = 0; )
-
-    if(livre.getEtat() == true) // si le ivre est emprunté
+    for(int i = 0; i < _listeLivres.size(); i++)    // pour chaque livre dans la bibliotheque
     {
-        std::cout << "Le livre est deja pris" << std::endl;
-    }
-
-    else
-    {
-        std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl << std::endl;
-        livre.setEtat(true);
-        Emprunt emprunt(date, livre, lecteur);
-        _listeEmprunts.push_back(emprunt);
-        for(int i = 0; i < _listeLivres.size(); i++)
+        if(livre.getIsbn() == _listeLivres[i].getIsbn())    // si l'isbn du livre cherché = isbn du livre de la liste
         {
-            if(_listeLivres[i].getIsbn() == livre.getIsbn())
+            if(livre.getEtat() == true) // si le livre est emprunté
             {
-                _listeLivres[i].setEtat(true);
+                std::cout << "Le livre est deja pris" << std::endl;
+            }
+            else
+            {
+                std::cout << lecteur.getPrenomLecteur() << " emrpunte le livre : " << livre.getTitre() << std::endl << std::endl;
+                livre.setEtat(true);
+                Emprunt emprunt(date, livre, lecteur);
+                _listeEmprunts.push_back(emprunt);
+                for(int i = 0; i < _listeLivres.size(); i++)    // pour chaque livre de la liste de livres
+                {
+                    if(_listeLivres[i].getIsbn() == livre.getIsbn())    // si l'isbn du livre cherché = isbn dans la liste
+                    {
+                        _listeLivres[i].setEtat(true);
+                    }
+                }
+                livre.ajouterEmprunt(lecteur.getIdLecteur());
+                livre.afficherEmprunt();
+                lecteur.ajouterIsbn(livre.getIsbn());
+                lecteur.afficherIsbn();
             }
         }
     }
-
-    livre.ajouterEmprunt(lecteur.getIdLecteur());
-    livre.afficherEmprunt();
-    lecteur.ajouterIsbn(livre.getIsbn());
-    lecteur.afficherIsbn();
 }
 // rendre un livre
 void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)

@@ -44,15 +44,14 @@ int main()
     bibli1.ajouterUnLivre(glace);
     bibli1.ajouterUnLivre(laVallee);
     bibli1.ajouterUnLivre(leLabyrinthe);
-    bibli1.ajouterUnLivre(laTerreBrulee);
-    bibli1.ajouterUnLivre(allaicneDesTrois);
     bibli1.ajouterUnLivre(malefices);
-    bibli1.ajouterUnLivre(laPatienceDuDiable);
+
 
     bibli1.emprunt(glace, maxime, parutionAllianceDesTrois);
     bibli1.emprunt(leLabyrinthe, maxime, parutionAllianceDesTrois);
-    bibli1.emprunt(laTerreBrulee, maxime, parutionAllianceDesTrois);
+    bibli1.emprunt(malefices, maxime, parutionAllianceDesTrois);
     bibli1.afficheLivresEmprunteLecteur(maxime);
+    bibli1.emprunt(glace, clement, parutionAllianceDesTrois);
 
 
 
