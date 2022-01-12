@@ -97,6 +97,7 @@ int dayOfYear(Date d) {
     return day;
 }
 
-std::string toString(Date d) {
+std::string toString(Date d)
+{
     return std::to_string(d.getDay()) + " / " + std::to_string(d.getMonth()) + " / " + std::to_string(d.getYear());
 }

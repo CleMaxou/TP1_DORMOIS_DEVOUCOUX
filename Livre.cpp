@@ -5,8 +5,6 @@
 
 #include <iostream>
 
-
-
 // constructeur par paramètres
 Livre::Livre(std::string titre, std::string langue, std::string genre, std::string isbn, Auteur auteurDuLivre, Date dateparution) : _titre(titre), _langue(langue), _genre(genre), _isbn(isbn),  _auteurDuLivre(auteurDuLivre), _date(dateparution)
 {
@@ -20,7 +18,7 @@ Livre::Livre()
 }
 
 // =================================== Getters ======================================
-std::string Livre::getIsbn()
+std::string Livre::getIsbn() const
 {
     return _isbn;
 }
@@ -39,13 +37,28 @@ std::string Livre::getTitre() const
 {
     return _titre;
 }
+
+std::string Livre::getGenre() const
+{
+    return _genre;
+}
+
+std::string Livre::getLangue() const
+{
+    return _langue;
+}
+
+Date Livre::getDatePubli() const
+{
+    return _date;
+}
 // ================================= Setters ========================================
 void Livre::setEtat(bool etat)
 {
     _emprunte = etat;
 }
 
-// ================================ Méthodes ==============================
+// =================================== Méthodes =================================
 void Livre::afficheLivre()
 {
     std::cout << "Titre : " << _titre << std::endl;
@@ -67,7 +80,6 @@ void Livre::afficheLivre()
     std::cout << toString(_date) << std::endl;
 }
 
-// afficher la liste des id des gens ayant empruntés des livres
 void Livre::afficherEmprunt()
 {
     std::cout << "liste d'emprunts du livre " << _titre << " : "  << std::endl;
@@ -80,4 +92,15 @@ void Livre::afficherEmprunt()
 void Livre::ajouterEmprunt(std::string emprunt)
 {
     _listeEmprunt.push_back(emprunt);
+}
+
+std::string toString(Auteur a)
+{
+    return a.getNomAuteur() + " / " + a.getPrenomAuteur() + " / " + toString(a.getDateAuteur()) + " / " + a.getIdAuteur();
+}
+
+std::ostream& operator<<(std::ostream& os, Livre livre)
+{
+    os << "Infos du livre : " << std::endl << "Titre : " << livre.getTitre() << std::endl << "Auteur : " << toString(livre.getAuteur()) << std::endl << "Langue : " << livre.getLangue() << std::endl << "Genre : " << livre.getGenre() << std::endl << "Date : " << toString(livre.getDatePubli()) << std::endl << "1 emprunte, 0 libre : "<< std::to_string(livre.getEtat()) << std::endl;
+    return os;
 }

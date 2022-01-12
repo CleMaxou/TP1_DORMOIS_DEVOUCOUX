@@ -11,6 +11,7 @@ public:
     Lecteur(std::string idLecteur, std::string nomLecteur, std::string prenomLecteur);
     Lecteur();
     ~Lecteur();
+
     // getters
     std::string getNomLecteur() const;
     std::string getPrenomLecteur() const;
@@ -20,9 +21,9 @@ public:
     void setIsbn(std::string isbn);
 
     // méthodes
-    void ajouterIsbn(std::string isbn);
-    void afficherIsbn();
-    void afficherLecteur();
+    void ajouterIsbn(std::string isbn); // ajoute un isbn à la liste
+    void afficherIsbn();    // affiche la liste des isbn
+    void afficherLecteur(); // affiche les infos du lecteur
 
 private:
     std::string _idLecteur;
@@ -30,7 +31,7 @@ private:
     std::string _prenomLecteur;
     std::vector<std::string> _listeIsbn;
 };
-
-void ajouterUnIsbn(std::string isbn);
+// surcharge op
+std::ostream& operator<<(std::ostream& os, Lecteur l);
 
 #endif // LECTEUR_H

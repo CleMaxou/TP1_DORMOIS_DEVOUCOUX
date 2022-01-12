@@ -9,12 +9,11 @@ Lecteur::Lecteur(std::string idLecteur, std::string nomLecteur, std::string pren
 {
 
 }
-
+// constructeur par défaut
 Lecteur::Lecteur()
 {
 
 }
-
 // destructeur
 Lecteur::~Lecteur()
 {
@@ -27,7 +26,6 @@ void Lecteur::setIsbn(std::string isbn)
 }
 
 // ========================= Getters ========================================
-
 std::string Lecteur::getPrenomLecteur() const
 {
     return _prenomLecteur;
@@ -47,15 +45,12 @@ std::string Lecteur::getIdLecteur() const
 void Lecteur::ajouterIsbn(std::string isbn)
 {
     _listeIsbn.push_back(isbn);
-    std::cout << "fait" << std::endl;
 }
 
-// affiche la liste des isbn des livres
 void Lecteur::afficherIsbn()
 {
-    std::cout << "salut" << std::endl;
-    int n = _listeIsbn.size();
-    for(int i = 0; i < n; i++)
+    std::cout << "Liste des ISBN empruntes par : " << _prenomLecteur << std::endl;
+    for(int i = 0; i < _listeIsbn.size(); i++)
     {
         std::cout << _listeIsbn[i] << std::endl;
     }
@@ -66,4 +61,10 @@ void Lecteur::afficherLecteur()
     std::cout << _prenomLecteur << std::endl;
     std::cout << _nomLecteur << std::endl;
     std::cout << _idLecteur << std::endl;
+}
+// surcharge op
+std::ostream& operator<<(std::ostream& os, Lecteur lecteur)
+{
+    os << "Infos du lecteur :" << std::endl << "Prenom : " << lecteur.getPrenomLecteur()  << std::endl << "Nom : " << lecteur.getNomLecteur() << std::endl << "ID : " << lecteur.getIdLecteur() << std::endl;
+    return os;
 }

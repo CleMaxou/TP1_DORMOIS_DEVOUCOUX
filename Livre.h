@@ -16,36 +16,34 @@ public:
     Livre();
 
     // getters
-    std::string getIsbn();
+    std::string getIsbn() const;
     Auteur getAuteur() const;
     bool getEtat() const;
     std::string getTitre() const;
+    std::string getLangue() const;
+    std::string getGenre() const;
+    Date getDatePubli() const;
 
     // setter
     void setEtat(bool etat);
 
-
     // méthodes
-    void afficheLivre();
-    void ajouterEmprunt(std::string emprunt);
-    void afficherEmprunt();
-
-
+    void afficheLivre();    // affiche toutes les infos du livre
+    void ajouterEmprunt(std::string emprunt);   // ajoute un emprunt à la lise d'emprunts
+    void afficherEmprunt(); // affiche la liste des id des gens ayant emprunté
 
 private:
-    //
     Auteur _auteurDuLivre;  // auteur du livre via une classe
+    Date _date;     // date de publication via classe
     std::string _langue;
     std::string _genre;
     std::string _titre;
-    Date _date;     // date de publication via classe
     std::string _isbn;
     std::vector<std::string> _listeEmprunt;
     bool _emprunte;
-
-
-
-
 };
+std::string toString(Auteur a);
+// operateur
+std::ostream& operator<<(std::ostream& os, Livre livre);
 
 #endif

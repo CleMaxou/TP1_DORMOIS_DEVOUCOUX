@@ -5,7 +5,6 @@
 #include "Livre.h"
 #include "Lecteur.h"
 
-
 Emprunt::Emprunt(Date dateEmprunt, Livre livre, Lecteur lecteur) : _date(dateEmprunt), _isbnLivre(livre.getIsbn()), _idLecteur(lecteur.getIdLecteur())
 {
 

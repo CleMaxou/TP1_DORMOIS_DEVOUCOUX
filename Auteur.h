@@ -16,6 +16,7 @@ public:
     std::string getPrenomAuteur() const;
     std::string getDateNaissanceAuteur() const;
     std::string getIdAuteur() const;
+    Date getDateAuteur() const;
 
     void afficherAuteur() const;
 
@@ -24,7 +25,8 @@ private:
     std::string _prenomAuteur;
     std::string _idAuteur;
     Date _dateAuteur;
-
 };
+// surcharge opérateur
+std::ostream& operator<<(std::ostream& os, Auteur auteur);
 
 #endif // AUTEUR_H

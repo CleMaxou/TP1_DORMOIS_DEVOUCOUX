@@ -12,22 +12,28 @@ Bibliotheque::Bibliotheque()
 
 }
 
-// méthodes
-void Bibliotheque::ajouterUnLivre(Livre livre)
+// ajout
+void Bibliotheque::ajouterUnLivre(Livre &livre)
 {
     _listeLivres.push_back(livre);
 }
 
-void Bibliotheque::ajouterUnLecteur(Lecteur lecteur)
+void Bibliotheque::ajouterUnLecteur(Lecteur& lecteur)
 {
     _listeLecteurs.push_back(lecteur);
 }
 
-void Bibliotheque::ajouterEmprunt(Emprunt emprunt)
+void Bibliotheque::ajouterEmprunt(Emprunt& emprunt)
 {
     _listeEmprunts.push_back(emprunt);
 }
 
+void Bibliotheque::ajouterAuteur(Auteur auteur)
+{
+    _listeAuteurs.push_back(auteur);
+}
+
+// affichage
 void Bibliotheque::afficherListeLivre()
 {
     std::cout << "Liste des livres :" << std::endl << std::endl;
@@ -60,6 +66,16 @@ void Bibliotheque::afficherListeEmprunt()
     }
 }
 
+void Bibliotheque::afficherListeAuteurs()
+{
+    std::cout << "Liste des auteurs :" << std::endl << std::endl;
+    for(int i = 0; i < _listeAuteurs.size(); i++)
+    {
+        _listeAuteurs[i].afficherAuteur();
+        std::cout << std::endl;
+    }
+}
+// emprunt de livres
 void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
 {
     if(livre.getEtat() == true) // si le ivre est emprunté
@@ -74,13 +90,15 @@ void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
         _listeEmprunts.push_back(emprunt);
     }
 
-    //livre.ajouterEmprunt(lecteur.getIdLecteur());
-    //livre.afficherEmprunt();
+    livre.ajouterEmprunt(lecteur.getIdLecteur());
+    livre.afficherEmprunt();
+    lecteur.ajouterIsbn(livre.getIsbn());
+    lecteur.afficherIsbn();
 }
-
+// rendre un livre
 void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
 {
-    if(livre.getEtat() == 0)    // si livre ibre
+    if(livre.getEtat() == 0)    // si livre libre
     {
         std::cout << "livre deja libre" << std::endl;
     }
@@ -96,7 +114,45 @@ void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
     {
         std::cout << lecteur.getPrenomLecteur() << " rend le livre " << livre.getTitre() << std::endl << std::endl;
         livre.setEtat(false);
-        livre.ajouterEmprunt(lecteur.getIdLecteur());
+
         //erase(_listeEmprunts, _listeEmprunts[numEmprunt - 1]);
     }
 }
+// cherche les livres d'un auteur dans la bibli
+void Bibliotheque::chercherLivresAuteur(Auteur &auteur)
+{
+    int c = 0;
+    for (int i = 0; i < _listeLivres.size(); i++)
+    {
+        if (_listeLivres[i].getAuteur().getIdAuteur() == auteur.getIdAuteur())
+        {
+            std::cout << i + 1 << " : " << _listeLivres[i].getTitre() << " "<<std::endl;
+            c++;
+        }
+    }
+    if (c == 0)
+    {
+        std::cout << "Il n' y a pas de livre de cet auteur dans la bibliotheque" << std::endl;
+    }
+}
+// calcule la moyenne des livres empruntés
+void Bibliotheque::calculLivreemprunter()
+{
+    float nbrLivre = 0.0;
+    float nbrLivreEmprunter = 0.0;
+    for (int i = 0; i < _listeLivres.size(); i++)
+    {
+        nbrLivre++;
+        for (int j = 0; j < _listeEmprunts.size(); j++)
+        {
+
+            if (_listeLivres[i].getIsbn() == _listeEmprunts[j].getISBNEmprunt())
+            {
+                nbrLivreEmprunter++;
+            }
+        }
+    }
+    std::cout << "Le pourcentage de livre emprunte est : " << (nbrLivreEmprunter / nbrLivre) *100 << " % " << std::endl;
+}
+
+

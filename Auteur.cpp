@@ -30,6 +30,11 @@ std::string Auteur::getIdAuteur() const
     return _idAuteur;
 }
 
+Date Auteur::getDateAuteur() const
+{
+    return _dateAuteur;
+}
+
 // ============================ méthodes ==========================
 void Auteur::afficherAuteur() const
 {
@@ -37,4 +42,11 @@ void Auteur::afficherAuteur() const
     std::cout << "Nom : " << _nomAuteur << std::endl;
     std::cout << toString(_dateAuteur) << std::endl;
     std::cout << "ID : " << _idAuteur << std::endl;
+}
+
+// ==================== surcharge op =============================
+std::ostream& operator<<(std::ostream& os, Auteur auteur)
+{
+    os << "Nom : " << auteur.getNomAuteur() << std::endl << "Prenom : " << auteur.getPrenomAuteur() << std::endl << "ID : " << auteur.getIdAuteur()  << std::endl << "Date de naissance : " << toString(auteur.getDateAuteur()) << std::endl;
+    return os;
 }

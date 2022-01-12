@@ -10,123 +10,41 @@ int main()
 {
     // objets
     Bibliotheque bibli1;
-
-    Date date1(5,13,2020);
-    Date date2(2,25,1995);
-    Date date3(8,31,1959);
-    Date date4(11,25,2022);
-
-    Auteur auteur1("Colbell", "Jonhatan", date3, "7854");
-    Auteur auteur2("Blora", "Natasha", date2, "8541");
-
-    Livre Direction("Direction", "francais", "historique", "254106", auteur1, date1);
-    Livre Nemo("Nemo", "allemand", "roman", "125652", auteur2, date1);
-    Livre LPCR("Le petit chaperon rouge", "anglais", "conte", "454587", auteur2, date1);
-
-    Lecteur marc("123", "BOUELAU", "Marc");
+    // dates auteurs
+    Date naissanceBMinier(8,26,1960);
+    Date naissanceJDashner(11,26,1972);
+    Date naissanceMChattam(2,19,1976);
+    Date naissanceHCoben(1,4,1962);
+    // dates parution
+    Date parutionGlace(2,24,2011);
+    Date parutionLaVallee(5,20,2020);
+    Date parutionLeLabyrinthe(10,4,2012);
+    Date parutionLaTerreBrulee(8,14,2013);
+    Date parutionAllianceDesTrois(11,3,2008);
+    Date parutionMalefices(4,15,2004);
+    Date parutionLaPatienceDuDiable(6,2,2014);
+    // auteurs
+    Auteur BMinier("Minier", "Bernard", naissanceBMinier, "0001");
+    Auteur JDashner("Dashner", "James", naissanceJDashner, "0002");
+    Auteur MChattam("Chattam", "Maxime", naissanceMChattam, "0003");
+    Auteur HCoben("Coben", "Harlan", naissanceHCoben, "0004");
+    // lecteurs
     Lecteur clement("245", "DORMOIS", "Clement");
-    Lecteur maxou("921", "DEVOUCOUX", "Maxime");
+    Lecteur maxime("255", "DEVOUCOUX", "Maxime");
+    Lecteur laurine("262", "CARCONE", "Laurine");
+    //livres
+    Livre glace("Glace", "francais", "Roman", "125487", BMinier, parutionGlace);
+    Livre laVallee("La Vallee", "francais", "Roman", "542632", BMinier, parutionGlace);
+    Livre leLabyrinthe("Le Labyrinthe", "anglais", "Roman", "148567", JDashner, parutionLeLabyrinthe);
+    Livre laTerreBrulee("La Terre Brulee", "anglais", "Roman", "148578", JDashner, parutionLaTerreBrulee);
+    Livre allaicneDesTrois("L'Allaicne des Trois", "francais", "Roman", "845120", MChattam, parutionAllianceDesTrois);
+    Livre malefices("Malefices", "francais", "Roman", "187236", MChattam, parutionMalefices);
+    Livre laPatienceDuDiable("La patience du Diable", "francais", "Roman", "326521", MChattam, parutionMalefices);
 
-    //Livre *pointDirection = &Direction;
-    // ========== pointeurs ======================
-    Lecteur *pointMarc = &marc;
-    Lecteur *pointClement = &clement;
-    Lecteur *pointMaxou = &maxou;
-
-    // ajout de livres
-    bibli1.ajouterUnLivre(Direction);
-    bibli1.ajouterUnLivre(LPCR);
-    bibli1.ajouterUnLivre(Nemo);
-
-    // ajout de lecteurs
-    bibli1.ajouterUnLecteur(clement);
-    bibli1.ajouterUnLecteur(maxou);
-    bibli1.ajouterUnLecteur(marc);
-
-    bibli1.afficherListeLecteur();
-    bibli1.afficherListeLivre();
-
-    bibli1.emprunt(Nemo, maxou, date4);
-    Nemo.afficheLivre();
-
-    bibli1.emprunt(Direction, clement, date4);
-    Direction.afficheLivre();
-
-    bibli1.afficherListeEmprunt();
-
-    bibli1.rendre(Direction, clement, 2);
-    bibli1.rendre(Nemo, maxou, 1);
-
-    Direction.afficheLivre();
-    Nemo.afficheLivre();
-
-    Direction.afficherEmprunt();
-    Nemo.afficherEmprunt();
+    bibli1.ajouterUnLivre(glace);
+    bibli1.ajouterUnLivre(laVallee);
+    bibli1.ajouterUnLivre(allaicneDesTrois);
 
 
-
-    /*
-    std::cout << " ============== marc ============" << std::endl;
-
-    Direction.emprunter(*pointMarc);
-    Direction.afficheLivre();
-    Direction.afficherEmprunt();
-    Direction.rendre(*pointMarc);
-    Direction.afficheLivre();
-    std::cout << std::endl << std::endl;
-
-    std::cout << " ============== clement ============" << std::endl;
-    Direction.emprunter(*pointClement);
-    Direction.afficheLivre();
-    Direction.afficherEmprunt();
-    Direction.rendre(*pointClement);
-    Direction.afficheLivre();
-
-    std::cout << " ============== maxou ============" << std::endl;
-    Direction.emprunter(*pointMaxou);
-    Direction.afficheLivre();
-    Direction.afficherEmprunt();
-
-    std::cout << std::endl << std::endl;
-    pointClement->afficherIsbn();   // à faire
-
-    Emprunt emprunt1(date1, Direction, maxou);
-    emprunt1.afficher();
-
-    std::cout << std::endl << std::endl;
-    std::cout << " ==========================" << std::endl;
-    bibli1.ajouterUnLivre(Direction);
-    bibli1.ajouterUnLivre(LFNPDSDM);
-    bibli1.ajouterUnLivre(LPCR);
-    bibli1.afficherListeLivre();
-
-    std::cout << std::endl << std::endl;
-    std::cout << " ==========================" << std::endl;
-
-    bibli1.ajouterUnLecteur(clement);
-    bibli1.ajouterUnLecteur(marc);
-    bibli1.ajouterUnLecteur(maxou);
-
-
-    bibli1.emprunt(Direction,clement,date1);
-
-
-    bibli1.afficherListeEmprunt();
-
-    */
-
-
-
-
-    /*
-    Emprunt emprunt1("0125", "235");
-    Emprunt *pointEmmprunt1 = &emprunt1;
-    pointEmmprunt1->setId("1258");
-    emprunt1.afficher();
-    */
-
-    delete pointMarc;
-    delete pointClement;
-    delete pointMaxou;
     return 0;
 }

@@ -23,14 +23,12 @@ public:
     // méthodes
     void afficher() const;
 
-
 private:
     std::string _isbnLivre;
     std::string _idLecteur;
     Date _date;
     Livre _livre;
     Lecteur _lecteur;
-
 };
 
 #endif // EMPRUNT_H
