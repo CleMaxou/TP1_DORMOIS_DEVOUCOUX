@@ -41,6 +41,11 @@ std::string Lecteur::getIdLecteur() const
     return _idLecteur;
 }
 
+std::vector<std::string> Lecteur::getListeISBN() const
+{
+    return _listeIsbn;
+}
+
 // ========================= Méthodes ====================================
 void Lecteur::ajouterIsbn(std::string isbn)
 {

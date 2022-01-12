@@ -45,6 +45,17 @@ int main()
     bibli1.ajouterUnLivre(laVallee);
     bibli1.ajouterUnLivre(allaicneDesTrois);
 
+    bibli1.emprunt(glace, maxime, parutionAllianceDesTrois);
+    bibli1.emprunt(leLabyrinthe, maxime, parutionAllianceDesTrois);
+    bibli1.emprunt(laTerreBrulee, maxime, parutionAllianceDesTrois);
+    bibli1.afficheLivresEmprunteLecteur(maxime);
+
+    /*
+    bibli1.afficherListeLivre();
+    bibli1.rendre(glace, maxime, 1);
+    bibli1.afficherListeLivre();
+    */
+
 
     return 0;
 }

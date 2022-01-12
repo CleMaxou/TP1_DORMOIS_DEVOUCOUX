@@ -16,6 +16,7 @@ public:
     std::string getNomLecteur() const;
     std::string getPrenomLecteur() const;
     std::string getIdLecteur() const;
+    std::vector<std::string> getListeISBN() const;
 
     // setters
     void setIsbn(std::string isbn);

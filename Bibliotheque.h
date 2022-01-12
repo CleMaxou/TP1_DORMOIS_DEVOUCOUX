@@ -28,6 +28,7 @@ public:
     void rendre(Livre&livre, Lecteur&lecteur, int numEmprunt);
     void chercherLivresAuteur(Auteur& auteur);
     void calculLivreemprunter();
+    void afficheLivresEmprunteLecteur(Lecteur& lecteur);
 
 private:
     std::vector<Livre> _listeLivres;
