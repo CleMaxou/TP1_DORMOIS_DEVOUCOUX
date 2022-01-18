@@ -4,7 +4,8 @@
 #include "Emprunt.h"
 #include "Date.h"
 #include <iostream>
-//#include <vector>
+#include <vector>
+#include <algorithm>
 
 // constructeur
 Bibliotheque::Bibliotheque()
@@ -96,13 +97,13 @@ void Bibliotheque::emprunt(Livre& livre, Lecteur& lecteur, Date date)
                 {
                     if(_listeLivres[i].getIsbn() == livre.getIsbn())    // si l'isbn du livre cherché = isbn dans la liste
                     {
-                        _listeLivres[i].setEtat(true);
+                        _listeLivres[i].setEtat(true);  // on met le livre de la liste emprunté
                     }
                 }
-                livre.ajouterEmprunt(lecteur.getIdLecteur());
-                livre.afficherEmprunt();
-                lecteur.ajouterIsbn(livre.getIsbn());
-                lecteur.afficherIsbn();
+                livre.ajouterEmprunt(lecteur.getIdLecteur());   // ajoute un ID de lecteur dans la liste du livre
+                livre.afficherEmprunt();    // afficher la liste d'ID de lecteur pour un livre
+                lecteur.ajouterIsbn(livre.getIsbn());   // ajouter un ISBN de livre dans la liste du lecteur
+                lecteur.afficherIsbn(); // afficher la liste d'ISBN de livres pour un lecteur
             }
         }
     }
@@ -133,6 +134,7 @@ void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
                 _listeLivres[i].setEtat(false);
             }
         }
+        _listeEmprunts.erase(_listeEmprunts.begin()+(numEmprunt - 1));  // modifie la liste des emprunts
 
 
     }
@@ -192,4 +194,15 @@ void Bibliotheque::afficheLivresEmprunteLecteur(Lecteur& lecteur)
         }
     }
 }
-
+// affiche le classement des meilleurs emprunteurs
+/*
+void Bibliotheque::classementLecteur()
+{
+    std::cout << "============ Classement des emprunts =============" << std::endl;
+    std::sort(_listeLecteurs.begin(), _listeLecteurs.end());
+    for(auto element : _listeLecteurs)
+    {
+        std::cout << element << std::endl;
+    }
+}
+*/

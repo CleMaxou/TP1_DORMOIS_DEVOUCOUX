@@ -29,6 +29,7 @@ public:
     void chercherLivresAuteur(Auteur& auteur);
     void calculLivreemprunter();
     void afficheLivresEmprunteLecteur(Lecteur& lecteur);
+    void classementLecteur();
 
 private:
     std::vector<Livre> _listeLivres;
