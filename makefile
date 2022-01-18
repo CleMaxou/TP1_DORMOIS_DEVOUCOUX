@@ -1,8 +1,10 @@
+# Makefile with dependencies management (Q4)
+
 CXX        = g++
-CXXFLAGS   = -Wall  -std=c++17
+CXXFLAGS   = -Wall -Wextra -std=c++11
 DEPFLAGS   = -MMD
 LDFLAGS    =
-SRCS       = Livre.cpp Auteur.cpp main.cpp
+SRCS       = Date.cpp main.cpp Livre.cpp Auteur.cpp Lecteur.cpp Emprunt.cpp Bibliotheque.cpp
 OBJS       = $(SRCS:.cpp=.o)
 TARGET     = app
 DEPS	   = $(OBJS:.o=.d)
@@ -25,3 +27,4 @@ exe: $(TARGET)
 	./$(TARGET)
 
 -include $(DEPS)
+

@@ -142,12 +142,13 @@ void Bibliotheque::rendre(Livre& livre, Lecteur& lecteur, int numEmprunt)
 // cherche les livres d'un auteur dans la bibli
 void Bibliotheque::chercherLivresAuteur(Auteur &auteur)
 {
+    std::cout << "Livres de l'auteur : " << auteur.getPrenomAuteur() << " " << auteur.getNomAuteur() << std::endl;
     int c = 0;
     for (int i = 0; i < _listeLivres.size(); i++)
     {
         if (_listeLivres[i].getAuteur().getIdAuteur() == auteur.getIdAuteur())
         {
-            std::cout << i + 1 << " : " << _listeLivres[i].getTitre() << " "<<std::endl;
+            std::cout << _listeLivres[i].getTitre() << " "<<std::endl;
             c++;
         }
     }
@@ -159,6 +160,7 @@ void Bibliotheque::chercherLivresAuteur(Auteur &auteur)
 // calcule la moyenne des livres empruntés
 void Bibliotheque::calculLivreemprunter()
 {
+    std::cout << "Liste des livres empruntes : " << std::endl;
     float nbrLivre = 0.0;
     float nbrLivreEmprunter = 0.0;
     for (int i = 0; i < _listeLivres.size(); i++)
@@ -170,6 +172,7 @@ void Bibliotheque::calculLivreemprunter()
             if (_listeLivres[i].getIsbn() == _listeEmprunts[j].getISBNEmprunt())
             {
                 nbrLivreEmprunter++;
+                std::cout << _listeLivres[i].getTitre() << std::endl;
             }
         }
     }
@@ -178,7 +181,7 @@ void Bibliotheque::calculLivreemprunter()
 // affiche les livres que le lecteur a emprunté
 void Bibliotheque::afficheLivresEmprunteLecteur(Lecteur& lecteur)
 {
-    std::cout << "==================" << std::endl;
+    std::cout << "Livres qui ont ete empruntes par " << lecteur.getPrenomLecteur() << std::endl;
     int c = 0;
     std::string ISBN;
     for(int i = 0; i < lecteur.getListeISBN().size(); i++)
@@ -195,7 +198,7 @@ void Bibliotheque::afficheLivresEmprunteLecteur(Lecteur& lecteur)
     }
 }
 // affiche le classement des meilleurs emprunteurs
-/*
+
 void Bibliotheque::classementLecteur()
 {
     std::cout << "============ Classement des emprunts =============" << std::endl;
@@ -205,4 +208,4 @@ void Bibliotheque::classementLecteur()
         std::cout << element << std::endl;
     }
 }
-*/
+

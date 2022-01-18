@@ -47,6 +47,6 @@ void Auteur::afficherAuteur() const
 // ==================== surcharge op =============================
 std::ostream& operator<<(std::ostream& os, Auteur auteur)
 {
-    os << "Nom : " << auteur.getNomAuteur() << std::endl << "Prenom : " << auteur.getPrenomAuteur() << std::endl << "ID : " << auteur.getIdAuteur()  << std::endl << "Date de naissance : " << toString(auteur.getDateAuteur()) << std::endl;
+    os << "Infos de l'auteur : " << std::endl << "Nom : " << auteur.getNomAuteur() << std::endl << "Prenom : " << auteur.getPrenomAuteur() << std::endl << "ID : " << auteur.getIdAuteur()  << std::endl << "Date de naissance : " << toString(auteur.getDateAuteur()) << std::endl;
     return os;
 }

@@ -6,7 +6,7 @@
 #include "Emprunt.h"
 #include "Bibliotheque.h"
 
-// TP
+// TP 1 DEVOUCOUX Maxime DORMOIS Clement
 
 int main()
 {
@@ -43,7 +43,7 @@ int main()
     Livre laVallee("La Vallee", "francais", "Roman", "542632", BMinier, parutionGlace);
     Livre leLabyrinthe("Le Labyrinthe", "anglais", "Roman", "148567", JDashner, parutionLeLabyrinthe);
     Livre laTerreBrulee("La Terre Brulee", "anglais", "Roman", "148578", JDashner, parutionLaTerreBrulee);
-    Livre allaicneDesTrois("L'Allaicne des Trois", "francais", "Roman", "845120", MChattam, parutionAllianceDesTrois);
+    Livre allaicneDesTrois("L'Alliance des Trois", "francais", "Roman", "845120", MChattam, parutionAllianceDesTrois);
     Livre malefices("Malefices", "francais", "Roman", "187236", MChattam, parutionMalefices);
     Livre laPatienceDuDiable("La patience du Diable", "francais", "Roman", "326521", MChattam, parutionMalefices);
     Livre sansDefense("Sans Defense", "anglais","Roman","203541", HCoben, parutionSansDefense);
@@ -62,15 +62,33 @@ int main()
     bibli1.ajouterUnLecteur(clement);
     bibli1.ajouterUnLecteur(maxime);
     bibli1.ajouterUnLecteur(laurine);
-
+    // emprunts de livres
+    // clement
     bibli1.emprunt(glace,clement,date);
     bibli1.emprunt(laTerreBrulee,clement,date);
     bibli1.emprunt(laPatienceDuDiable,clement,date);
+    // maxime
+    bibli1.emprunt(glace,maxime,date);  // impossible car déjà emprunté
+    bibli1.emprunt(fauteDePreuves,maxime,date);
+    // laurine
+    bibli1.emprunt(leLabyrinthe,laurine,date);
+    bibli1.emprunt(allaicneDesTrois,laurine,date);
+    // affichage lise d'emprunts
     bibli1.afficherListeEmprunt();
-    bibli1.rendre(glace,clement,1);
-    bibli1.afficherListeEmprunt();
-
-
+    // restitution de livres
+    bibli1.rendre(allaicneDesTrois,laurine,6);  // laurine rend le livre qui est le 6 eme emprunt
+    // surchage des opérateurs
+    std::cout << clement << std::endl;
+    std::cout << HCoben << std::endl;
+    std::cout << laTerreBrulee << std::endl;
+    // recherche des livres d'un auteur
+    bibli1.chercherLivresAuteur(JDashner);
+    // chercher les livres empruntés et %age de la bibliotheque
+    bibli1.calculLivreemprunter();
+    // chercher les livres empruntes par un lecteur
+    bibli1.afficheLivresEmprunteLecteur(clement);
+    // classement des lecteurs en fonction des livres empruntes
+    bibli1.classementLecteur();
 
     return 0;
 }

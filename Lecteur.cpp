@@ -2,8 +2,6 @@
 #include "Lecteur.h"
 #include "Livre.h"
 
-
-
 // constructeur par paramètres
 Lecteur::Lecteur(std::string idLecteur, std::string nomLecteur, std::string prenomLecteur ) : _idLecteur(idLecteur), _nomLecteur(nomLecteur), _prenomLecteur(prenomLecteur)
 {
@@ -72,4 +70,16 @@ std::ostream& operator<<(std::ostream& os, Lecteur lecteur)
 {
     os << "Infos du lecteur :" << std::endl << "Prenom : " << lecteur.getPrenomLecteur()  << std::endl << "Nom : " << lecteur.getNomLecteur() << std::endl << "ID : " << lecteur.getIdLecteur() << std::endl;
     return os;
+}
+
+bool operator <(const Lecteur& l1, const Lecteur& l2)
+{
+    if(l1.getListeISBN().size() < l2.getListeISBN().size())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

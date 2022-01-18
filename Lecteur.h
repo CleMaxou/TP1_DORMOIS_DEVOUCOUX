@@ -34,5 +34,6 @@ private:
 };
 // surcharge op
 std::ostream& operator<<(std::ostream& os, Lecteur l);
+bool operator < (const Lecteur& l1, const Lecteur& l2);
 
 #endif // LECTEUR_H
